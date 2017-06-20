@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BlinkyPathing.cs" />
     <Compile Include="Assets\Scripts\ClydePathing.cs" />
+    <Compile Include="Assets\Scripts\GameOverScript.cs" />
     <Compile Include="Assets\Scripts\GhostTeleport.cs" />
     <Compile Include="Assets\Scripts\MenuScript.cs" />
     <Compile Include="Assets\Scripts\PauseScript.cs" />

@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour {
 
-    [SerializeField] private Canvas pauseMenu;
+    public Canvas pauseMenu;
 
     void Awake()
     {
-        pauseMenu.enabled = false;
         Cursor.visible = false;
+        pauseMenu.enabled = false;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -20,9 +20,10 @@ public class PauseScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.enabled = true;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
         }
+        else
+            Cursor.visible = false;
     }
 
     public void GameReturn()

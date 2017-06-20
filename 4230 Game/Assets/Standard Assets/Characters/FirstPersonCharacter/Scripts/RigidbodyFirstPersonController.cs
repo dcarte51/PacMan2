@@ -126,10 +126,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             mouseLook.Init(transform, cam.transform);
+            gameOver.enabled = false;
             pelletText.text = "Pellets Collected: " + pelletsCollected;
             remainingText.text = "Remaining Pellets: " + pelletsRem;
             scoreText.text = "Score: " + score;
-
+            livesText.text = "Lives: " + --numLives;
+            gameOverText.text = "";
+            finalScoreText.text = "";
         }
 
 
@@ -140,6 +143,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (CrossPlatformInputManager.GetButtonDown("Jump") && !m_Jump)
             {
                 m_Jump = true;
+            }
+
+            if(numLives == 0)
+            {
+                gameOverText.text = "Game Over";
+                finalScoreText.text = "Final Score: " + finalScore;
+                gameOver.enabled = true;
+                Time.timeScale = 0;
+            }
+
+            if(finalScore > score)
+            {
+                finalScore = score;
             }
             
             pelletText.text = "Pellets Collected: " + pelletsCollected;
@@ -276,15 +292,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private int score = 0;
         private int pelletsCollected = 0;
         private int pelletsRem = 176;
+        private int numLives = 4;
+        private int finalScore;
 
         public Text pelletText;
         public Text remainingText;
         public Text scoreText;
+        public Text livesText;
+        public Text gameOverText;
+        public Text finalScoreText;
 
         public AudioClip clip;
+        public Canvas gameOver;
 
         private Vector3 teleport1 = new Vector3(-28f, .5f, -3f);
         private Vector3 teleport2 = new Vector3(28f, .5f, -3f);
+        private Vector3 spawnPoint = new Vector3(1f, 1f, 3.5f);
 
         private void OnTriggerEnter(Collider other)
         {
@@ -296,6 +319,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 pelletsCollected++;
                 pelletsRem--;
                 AudioSource.PlayClipAtPoint(clip, transform.position);
+            }
+
+            if (other.gameObject.CompareTag("Ghost"))
+            {
+                numLives--;
+                livesText.text = "Lives: " + numLives;
+                transform.position = spawnPoint;
+                score = 0;
             }
 
             if (other.gameObject.CompareTag("Teleport1"))
