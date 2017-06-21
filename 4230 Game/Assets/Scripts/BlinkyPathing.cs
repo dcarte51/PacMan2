@@ -10,8 +10,8 @@ public class BlinkyPathing : MonoBehaviour {
 
     private Vector3 teleport1 = new Vector3(-30f, .5f, -3f);
     private Vector3 teleport2 = new Vector3(30f, .5f, -3f);
-    private Vector3 teleLocation1 = new Vector3(-28f, -1f, 8f);
-    private Vector3 teleLocation2 = new Vector3(28f, -1f, 8f);
+    private Vector3 teleLocation1 = new Vector3(-27f, -1f, 8f);
+    private Vector3 teleLocation2 = new Vector3(27f, -1f, 8f);
 
     // Use this for initialization
     void Start()
