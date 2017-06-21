@@ -144,18 +144,25 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Jump = true;
             }
-
-            if(numLives == 0)
+            if(score > finalScore)
             {
-                gameOverText.text = "Game Over";
+                finalScore = score;
+            }
+
+            if(pelletsRem == 0)
+            {
+                gameOverText.text = "You Win!";
                 finalScoreText.text = "Final Score: " + finalScore;
                 gameOver.enabled = true;
                 Time.timeScale = 0;
             }
-
-            if(finalScore > score)
+            
+            if(numLives == 0)
             {
-                finalScore = score;
+                gameOverText.text = "Game Over";
+                finalScoreText.text = "Highest Score: " + finalScore;
+                gameOver.enabled = true;
+                Time.timeScale = 0;
             }
             
             pelletText.text = "Pellets Collected: " + pelletsCollected;
@@ -293,7 +300,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private int pelletsCollected = 0;
         private int pelletsRem = 176;
         private int numLives = 4;
-        private int finalScore;
+        private int finalScore = 0;
 
         public Text pelletText;
         public Text remainingText;
@@ -302,7 +309,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public Text gameOverText;
         public Text finalScoreText;
 
-        public AudioClip clip;
+        public AudioClip munchClip;
+        public AudioClip deathClip;
         public Canvas gameOver;
 
         private Vector3 teleport1 = new Vector3(-28f, .5f, -3f);
@@ -318,12 +326,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 score += 10;
                 pelletsCollected++;
                 pelletsRem--;
-                AudioSource.PlayClipAtPoint(clip, transform.position);
+                AudioSource.PlayClipAtPoint(munchClip, transform.position);
             }
 
             if (other.gameObject.CompareTag("Ghost"))
             {
                 numLives--;
+                AudioSource.PlayClipAtPoint(deathClip, spawnPoint);
                 livesText.text = "Lives: " + numLives;
                 transform.position = spawnPoint;
                 score = 0;
