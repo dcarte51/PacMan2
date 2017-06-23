@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\GhostTeleport.cs" />
     <Compile Include="Assets\Scripts\MenuScript.cs" />
     <Compile Include="Assets\Scripts\PauseScript.cs" />
+    <Compile Include="Assets\Scripts\PinkyPathing.cs" />
     <Compile Include="Assets\Scripts\Teleport1Script.cs" />
   </ItemGroup>
   <ItemGroup>
