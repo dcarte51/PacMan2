@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4230 Game.Plugins", "4230 Game.Plugins.csproj", "{7DC66CD0-2E15-CCFF-FB97-8B2C68AD2541}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4230 Game", "4230 Game.csproj", "{92D99BD1-070C-F856-0973-BC655B912B3C}"

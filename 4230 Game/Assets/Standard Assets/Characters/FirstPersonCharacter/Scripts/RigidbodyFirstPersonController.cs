@@ -315,7 +315,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private Vector3 teleport1 = new Vector3(-28f, .5f, -3f);
         private Vector3 teleport2 = new Vector3(28f, .5f, -3f);
-        private Vector3 spawnPoint = new Vector3(1f, 1f, 3.5f);
+        private Vector3 spawnPoint = new Vector3(1f, 1f, 18.5f);
 
         private void OnTriggerEnter(Collider other)
         {
@@ -328,6 +328,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 pelletsRem--;
                 AudioSource.PlayClipAtPoint(munchClip, transform.position);
             }
+
+            if (other.gameObject.CompareTag("Power Up"))
+            {
+                other.gameObject.SetActive(false);
+                score += 50;
+                pelletsCollected++;
+                pelletsRem--;
+                AudioSource.PlayClipAtPoint(munchClip, transform.position);
+            }
+
 
             if (other.gameObject.CompareTag("Ghost"))
             {
