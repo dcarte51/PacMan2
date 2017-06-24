@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class PinkyPathing : MonoBehaviour {
-    public Transform target;
+    private GameObject player;
+    private GameObject target;
+    private Vector3 destination;
 
     // Use this for initialization
     void Start () {
@@ -12,6 +16,36 @@ public class PinkyPathing : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = target.forward.normalized + new Vector3(0f, 0f, 5f);
-	}
+
+        target =  GameObject.FindGameObjectWithTag("PinkyTarget");
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        var distToPlayer = Vector3.Distance(this.transform.position, player.transform.position);
+
+        if (distToPlayer <= 12)
+        {
+            destination= player.transform.position;
+        }
+        else
+        {
+            destination = target.transform.position;
+        }
+
+        transform.GetComponent<NavMeshAgent>().destination = destination;
+
+        if (Time.timeScale == 0)
+        {
+            transform.GetComponent<NavMeshAgent>().speed = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            transform.GetComponent<NavMeshAgent>().speed = 4f;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+
+    }
 }

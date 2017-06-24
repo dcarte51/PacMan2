@@ -69,12 +69,7 @@ public class ClydePathing : MonoBehaviour
                 transform.GetComponent<NavMeshAgent>().destination = destination;
             }
         }
-       /* if (transform.position.x == destination.x && transform.position.z == destination.z)
-        {
-            int rand = Random.Range(0, 13);
-            destination = locations[rand];
-            transform.GetComponent<NavMeshAgent>().destination = destination;
-        }*/
+
 
 
         if (Time.timeScale == 0)
