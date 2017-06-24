@@ -94,8 +94,10 @@
     <Compile Include="Assets\Scripts\ClydePathing.cs" />
     <Compile Include="Assets\Scripts\GameOverScript.cs" />
     <Compile Include="Assets\Scripts\GhostTeleport.cs" />
+    <Compile Include="Assets\Scripts\InkyPathing.cs" />
     <Compile Include="Assets\Scripts\MenuScript.cs" />
     <Compile Include="Assets\Scripts\PauseScript.cs" />
+    <Compile Include="Assets\Scripts\PelletMovement.cs" />
     <Compile Include="Assets\Scripts\PinkyPathing.cs" />
   </ItemGroup>
   <ItemGroup>
