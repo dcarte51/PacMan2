@@ -1,8 +1,9 @@
-﻿<Properties StartupItem="4230 Game.Plugins.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Prefabs\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Shaders\Outlined_Diffuse.shader">
     <Files>
-      <File FileName="Assets\Prefabs\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" Line="23" Column="14" />
+      <File FileName="Assets\Prefabs\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" Line="1" Column="1" />
+      <File FileName="Assets\Shaders\Outlined_Diffuse.shader" Line="135" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
