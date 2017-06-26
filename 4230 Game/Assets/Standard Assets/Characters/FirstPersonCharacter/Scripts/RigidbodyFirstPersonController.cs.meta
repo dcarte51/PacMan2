@@ -1,9 +1,22 @@
 fileFormatVersion: 2
 guid: 81c9795a96c094f4cbde4d65546aa9b2
+timeCreated: 1498357484
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cam: {instanceID: 0}
+  - pelletText: {instanceID: 0}
+  - remainingText: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - livesText: {instanceID: 0}
+  - gameOverText: {instanceID: 0}
+  - finalScoreText: {instanceID: 0}
+  - munchClip: {fileID: 8300000, guid: 63eba89026b2d474aa12f966d6e78511, type: 3}
+  - deathClip: {fileID: 8300000, guid: d880acac9eb16a549a100087fcc60eb4, type: 3}
+  - gameOver: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
+  assetBundleVariant: 

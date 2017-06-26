@@ -315,7 +315,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private Vector3 teleport1 = new Vector3(-28f, .5f, -3f);
         private Vector3 teleport2 = new Vector3(28f, .5f, -3f);
-        private Vector3 spawnPoint = new Vector3(1f, 1f, 18.5f);
+        private Vector3 spawnPoint = new Vector3(1f, 1f, 4f);
 
         private void OnTriggerEnter(Collider other)
         {
@@ -326,7 +326,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 score += 10;
                 pelletsCollected++;
                 pelletsRem--;
-                AudioSource.PlayClipAtPoint(munchClip, transform.position);
+                AudioSource.PlayClipAtPoint(munchClip, transform.position, 10f);
             }
 
             if (other.gameObject.CompareTag("Power Up"))
@@ -335,17 +335,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 score += 50;
                 pelletsCollected++;
                 pelletsRem--;
-                AudioSource.PlayClipAtPoint(munchClip, transform.position);
+                AudioSource.PlayClipAtPoint(munchClip, transform.position, 10f);
             }
 
 
             if (other.gameObject.CompareTag("Ghost"))
             {
+                score = 0;
                 numLives--;
-                AudioSource.PlayClipAtPoint(deathClip, spawnPoint);
+                AudioSource.PlayClipAtPoint(deathClip, spawnPoint, 10f);
                 livesText.text = "Lives: " + numLives;
                 transform.position = spawnPoint;
-                score = 0;
             }
 
             if (other.gameObject.CompareTag("Teleport1"))
